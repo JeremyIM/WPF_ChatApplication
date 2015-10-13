@@ -10,11 +10,11 @@
         <ToolBarTray VerticalAlignment="Top">
             <ToolBar x:Name="toolBar" HorizontalAlignment="Right" Height="30" Band="0" BandIndex="0" >
                 <Button Content="Host Server" Height="22" VerticalAlignment="Top" Width="75" ></Button>
-                <Button Content="Connect" Command="{Binding ClientConnect}" Height="22" VerticalAlignment="Top" Width="75"></Button>
+                <Button Content="Connect" Command="{Binding UserConnect}" Height="22" VerticalAlignment="Top" Width="75"></Button>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="chatConversation" HorizontalAlignment="Left" Height="247" Margin="10,36,0,0" TextWrapping="Wrap" Text="TextBox" IsReadOnly="True" VerticalAlignment="Top" Width="623"/>
-        <TextBox x:Name="userInput" HorizontalAlignment="Left" Height="72" Margin="10,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="547"/>
-        <Button x:Name="sendButton" Command="{Binding Send}" Content="Send" FontWeight="Bold" HorizontalAlignment="Left" Margin="562,288,0,0" VerticalAlignment="Top" Width="70" Height="72"/>
+        <TextBox x:Name="chatConversation" HorizontalAlignment="Left" Height="247" Margin="10,36,0,0" TextWrapping="Wrap" Text="{Binding ChatLog, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" VerticalAlignment="Top" Width="623"/>
+        <TextBox x:Name="userInput" HorizontalAlignment="Left" Height="72" Margin="10,288,0,0" TextWrapping="Wrap" Text="{Binding UserMessage, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="547"/>
+        <Button x:Name="sendButton" Command="{Binding UserSend}" Content="Send" FontWeight="Bold" HorizontalAlignment="Left" Margin="562,288,0,0" VerticalAlignment="Top" Width="70" Height="72"/>
     </Grid>
 </Window>

@@ -1,37 +1,14 @@
-﻿using System;
-using System.ComponentModel;
-using System.Windows.Input;
+﻿using System.ComponentModel;
 
 namespace wpfChatApplication.ViewModel
 {
     /// <summary>
     /// CHANGE THIS JEREMY!
+    /// Probably still needs changing...
     /// </summary>
-    abstract public class BaseViewModel : INotifyPropertyChanged, ICommand
+    abstract public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private Action execute;
-        private Func<bool> canExecute;
-
-        protected void RelayCommand(Action execute, Func<bool> canExecute = null)
-        {
-            this.execute = execute;
-            this.canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return canExecute == null || canExecute();
-        }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-
-        public void Execute(object parameter) { execute(); }
 
         protected void OnPropertyChanged(string propertyName)
         {

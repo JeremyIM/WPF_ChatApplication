@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Practices.Unity;
+using System.Windows;
 using wpfChatApplication.View;
-using wpfChatApplication.ViewModel;
 
 namespace wpfChatApplication
 {
@@ -11,7 +11,8 @@ namespace wpfChatApplication
     {
         public void App_Startup(object sender, StartupEventArgs e)
         {
-            ChatWindow window = new ChatWindow(new ChatViewModel());
+            UnityContainer _container = new UnityContainer();
+            ChatWindow window = _container.Resolve<ChatWindow>();
             window.Show();
         }
     }

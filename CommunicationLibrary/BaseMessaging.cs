@@ -42,7 +42,7 @@ namespace CommunicationLibrary
 
                     if (responseData.Length > 0)
                     {
-                        MessageRecieved(new MessageRecievedEventArgs(string.Format("Server:{0}", responseData)));
+                        MessageRecieved(new MessageRecievedEventArgs(responseData));
                         responseData = string.Empty;
                     }
                 }
